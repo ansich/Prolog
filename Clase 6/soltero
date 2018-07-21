@@ -1,0 +1,22 @@
+{soltero(X)}
+      | X <- Persona1
+{not(casado(Persona1)), varon(Persona1)}
+      | P <- casado(Persona1)
+{casado(Persona1,!,fail,varon(Persona1)}
+      | Persona1['Juan']
+{!,fail, varon('Juan')}
+      | 
+{fail, varon('Juan')}
+
+
+{soltero(X)}
+      | X <- Persona1
+{varon(Persona1), not(casado(Persona1))}
+      | Persona'Juan'				Persona1 <- 'Pepe'
+{casado('Juan'),!,fail}				{not(casado('Pepe')}			{}
+      | P <- casado('Juan')				| P <- casado('Pepe')
+{casado('Juan'),!,fail}				{casado('Pepe'),!,fail)}
+      | 
+  {!,fail}
+      |
+   {fail}

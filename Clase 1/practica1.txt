@@ -1,0 +1,45 @@
+Practica 1:
+
+//Comandos
+swipl(halt. para salir)
+consult('programa.pl').
+['programa.pl'].
+listing(programa).
+nat(0).
+trace. (para salir notrace.)
+
+//en prolog las sentencias acaban en punto
+
+Cabeza :- Cola. ==> reglas
+Cabeza. ==> hecho
+:-Cola. ==> pregunta
+
+Ej.:
+
+/*natural.pl
+	nat(0). ==> "el cero es un nº natural"
+	nat(s(X)):-nat(X). ==> "X+1 es natural si X es un nº natural"
+*/
+
+    {nat(s(0))}
+ 	| X<-0
+     {nat(0)}
+       	|
+	{}
+
+
+	 {nat(X)}
+   X<-0	  /   \ X <-s(X1) 
+	 {}   {nat(X1)}
+		 /\
+	X1 <- 0	/  \
+	       {}  {nat(X2)}
+		     /  \
+	   X2 <- 0  /    
+		   {}
+
+	X  <- s(X1)
+	x1 <- 0
+
+
+

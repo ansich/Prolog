@@ -1,0 +1,7 @@
+
+inclusion([],_).
+inclusion([Car|Cdr],C):-miembro(Car,C),inclusion(Cdr,C).
+
+union([],C,C).
+union([Car|Cdr], C, R):-miembro(Car,C),!,union(Cdr,C,R).
+union([Car,Cdr],C,[Car|Union]):-union(Cdr,C,Union).
